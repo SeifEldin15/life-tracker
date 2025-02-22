@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Calendar } from "@/components/ui/calendar"
 
 export function CalendarView() {
-  const [date, setDate] = useState<Date | undefined>(new Date())
+  const [date, setDate] = useState(new Date())
 
   const transactions = [
     { date: new Date(2023, 5, 1), description: "Salary Deposit", amount: 3500 },
@@ -15,7 +15,7 @@ export function CalendarView() {
   ]
 
   const transactionsOnSelectedDate = transactions.filter(
-    (transaction) => transaction.date.toDateString() === date?.toDateString(),
+    (transaction) => transaction.date.toDateString() === date.toDateString(),
   )
 
   return (
@@ -29,7 +29,7 @@ export function CalendarView() {
           <Calendar mode="single" selected={date} onSelect={setDate} className="rounded-md border" />
         </div>
         <div className="flex-1">
-          <h3 className="text-lg font-semibold mb-4">Transactions on {date?.toDateString()}</h3>
+          <h3 className="text-lg font-semibold mb-4">Transactions on {date.toDateString()}</h3>
           {transactionsOnSelectedDate.length > 0 ? (
             <ul className="space-y-2">
               {transactionsOnSelectedDate.map((transaction, index) => (

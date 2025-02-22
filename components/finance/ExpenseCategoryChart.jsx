@@ -37,7 +37,7 @@ export function ExpenseCategoryChart() {
     responsive: true,
     plugins: {
       legend: {
-        position: "right" as const,
+        position: "right",
       },
       title: {
         display: true,
